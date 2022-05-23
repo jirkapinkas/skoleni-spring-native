@@ -17,6 +17,12 @@
         <java.version>17</java.version>
         <repackage.classifier/>
         <spring-native.version>0.11.5</spring-native.version>
+        <!--
+        Bud nastavit username & password zde, nebo pri buildu aplikace dat:
+        mvn -Ddocker.registry.username=REAL_USER_VALUE -Ddocker.registry.password=REAL_PASS_VALUE spring-boot:build-image
+        -->
+        <docker.registry.username>TODO</docker.registry.username>
+        <docker.registry.password>TODO</docker.registry.password>
     </properties>
     <dependencies>
         <dependency>
@@ -59,7 +65,21 @@
                         <env>
                             <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
                         </env>
+                        <!-- Nazev Docker image & push do Docker registry -->
+                        <!--
+                        <name>TODO_IMAGE_NAME</name>
+                        <publish>true</publish>
+                        -->
                     </image>
+                    <!-- Username & password do Docker registry -->
+                    <!--
+                    <docker>
+                        <publishRegistry>
+                            <username>${docker.registry.username}</username>
+                            <password>${docker.registry.password}</password>
+                        </publishRegistry>
+                    </docker>
+                    -->
                 </configuration>
             </plugin>
             <plugin>
