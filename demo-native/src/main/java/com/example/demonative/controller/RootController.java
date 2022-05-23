@@ -24,7 +24,7 @@ public class RootController {
         // pristup pres reflexi
         Stuff stuff = restTemplate.getForObject("http://localhost:8080/stuff", Stuff.class);
         // pristup pres proxy
-        Message message = messageService.getMessage("data from proxy + " + stuff.getStuff());
+        Message message = messageService.getMessage("data from proxy + " + stuff.stuff());
         return message;
     }
 
